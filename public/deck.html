@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AushadhiSetu - Pitch Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+Devanagari:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep-teal: #004d40;
+    --teal-light: #e0f2f1;
+    --red: #d32f2f;
+    --red-bg: #ffebee;
+    --amber: #fbc02d;
+    --amber-bg: #fff9c4;
+    --green: #388e3c;
+    --green-bg: #e8f5e9;
+    --text: #333333;
+    --gray-bg: #f5f5f5;
+  }
+  
+  * { box-sizing: border-box; }
+  
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: #e0e0e0;
+    overflow-x: hidden;
+  }
+
+  /* Presentation Mode */
+  #presentation {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background: #555;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: white;
+    display: none;
+    flex-direction: column;
+    padding: 3rem 4rem;
+  }
+
+  .slide.active {
+    display: flex;
+  }
+
+  /* Typography */
+  h1, h2, h3 { margin: 0; color: var(--deep-teal); }
+  h2 { font-size: 2.5rem; margin-bottom: 2rem; border-bottom: 3px solid var(--deep-teal); padding-bottom: 0.5rem; display: inline-block; }
+  ul { font-size: 1.5rem; line-height: 1.6; margin: 0; padding-left: 2rem; flex: 1; }
+  li { margin-bottom: 1rem; }
+  .hindi { font-family: 'Noto Sans Devanagari', sans-serif; }
+
+  /* Layout grids */
+  .content-split {
+    display: flex;
+    gap: 3rem;
+    height: 100%;
+    align-items: center;
+  }
+  .bullets { flex: 1; }
+  .visual { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+
+  /* Visual elements */
+  .callout-box {
+    background: var(--teal-light);
+    border-left: 8px solid var(--deep-teal);
+    padding: 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  .disclosure-box {
+    background: #fff3e0;
+    border: 3px solid #ff9800;
+    padding: 2rem;
+    font-size: 1.3rem;
+    border-radius: 8px;
+    font-weight: 600;
+    width: 100%;
+  }
+  .disclosure-box ul { font-size: 1.2rem; margin-top: 1rem; }
+
+  .css-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.2rem;
+  }
+  .css-table th { background: var(--deep-teal); color: white; padding: 1rem; text-align: left; }
+  .css-table td { padding: 1rem; border-bottom: 1px solid #ccc; background: var(--gray-bg); }
+
+  .flowchart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+  }
+  .flow-box {
+    background: var(--deep-teal); color: white; padding: 1rem 2rem;
+    border-radius: 8px; font-weight: 600; font-size: 1.3rem; text-align: center; width: 80%;
+  }
+  .flow-arrow { font-size: 2rem; color: var(--deep-teal); }
+
+  .risk-card {
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    width: 100%;
+    border-left: 10px solid;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  .risk-red { background: var(--red-bg); border-color: var(--red); }
+  .risk-amber { background: var(--amber-bg); border-color: var(--amber); }
+  .risk-green { background: var(--green-bg); border-color: var(--green); }
+  .risk-card h4 { margin: 0; font-size: 1.4rem; color: #333; }
+  .risk-card p { margin: 0.5rem 0 0; font-size: 1.1rem; color: #555; }
+
+  .code-block {
+    background: #2d2d2d; color: #e6e1dc; padding: 1.5rem;
+    border-radius: 8px; font-family: monospace; font-size: 1.1rem;
+    width: 100%; white-space: pre-wrap;
+  }
+
+  .qr-code { border: 4px solid var(--deep-teal); padding: 1rem; border-radius: 12px; background: white; }
+
+  /* Title Slide Specifics */
+  .title-slide { justify-content: center; align-items: center; text-align: center; }
+  .title-slide h1 { font-size: 4rem; margin-bottom: 0.5rem; }
+  .title-slide .subtitle { font-size: 2rem; color: #555; margin-bottom: 1rem; }
+  .title-slide .track { font-size: 1.3rem; font-weight: 600; color: white; background: var(--deep-teal); padding: 0.5rem 1.5rem; border-radius: 20px; display: inline-block; margin-bottom: 2rem; }
+
+  /* Navigation Footer */
+  .nav-footer {
+    position: absolute;
+    bottom: 20px; right: 40px;
+    font-size: 1rem; color: #888;
+  }
+
+  /* Print Styles - One Slide Per Landscape Page */
+  @media print {
+    @page { size: A4 landscape; margin: 0; }
+    body, #presentation { background: white; overflow: visible; height: auto; display: block; }
+    .slide {
+      position: relative;
+      display: flex !important; /* Force all to show in print */
+      width: 297mm;
+      height: 210mm;
+      page-break-after: always;
+      page-break-inside: avoid;
+      padding: 15mm 20mm;
+      box-shadow: none;
+    }
+    .slide:last-child { page-break-after: auto; }
+    .nav-footer { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="presentation">
+
+  <!-- Slide 1 -->
+  <div class="slide title-slide active" id="slide1">
+    <h1>AushadhiSetu</h1>
+    <div class="subtitle">Last-Mile PHC Stock Guardian <span class="hindi">(औषधि सेतु)</span></div>
+    <div class="track">Track 3 Smart Health | Build with AI Code for Communities 2.0</div>
+    <div class="callout-box" style="width: auto; text-align: center; margin-top: 2rem;">
+      Demo: <strong>https://aushadhisetu-blond.vercel.app/</strong>
+    </div>
+    <div class="nav-footer">1 / 12</div>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="slide" id="slide2">
+    <h2>The Problem</h2>
+    <div class="content-split">
+      <div class="bullets">
+        <ul>
+          <li>Rural pharmacists are overwhelmed by manual paper registers.</li>
+          <li>DVDMS digital entry is delayed, causing critical systemic blind spots.</li>
+          <li>Missed tracking leads directly to stockouts of essential medicines.</li>
+        </ul>
+      </div>
+      <div class="visual">
+        <div class="callout-box">
+          "CAG Rajasthan 2022:<br>27% of PHCs &lt; 50% essential drugs."
+        </div>
+        <div class="callout-box" style="background: #ffe0b2; border-color: #ff9800;">
+          "Maharashtra IT Audit:<br>Demand module completely unused."
+        </div>
+      </div>
+    </div>
+    <div class="nav-footer">2 / 12</div>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="slide" id="slide3">
+    <h2>Personas</h2>
+    <div class="content-split">
+      <div class="bullets">
+        <ul>
+          <li><strong>Pharmacist:</strong> Overwhelmed by 100+ manual daily entries per register.</li>
+          <li><strong>MOIC:</strong> Approves indent requests blindly without data backing.</li>
+          <li><strong>District Officer:</strong> Lacks real-time visibility across PHCs.</li>
+        </ul>
+      </div>
+      <div class="visual" style="gap: 1.5rem;">
+        <div class="callout-box" style="padding: 1rem;">👨‍⚕️ <strong>Pharmacist</strong> "I have no time to type."</div>
+        <div class="callout-box" style="padding: 1rem;">🩺 <strong>MOIC</strong> "Are we over-ordering?"</div>
+        <div class="callout-box" style="padding: 1rem;">🏢 <strong>State</strong> "Where are the shortages?"</div>
+      </div>
+    </div>
+    <div class="nav-footer">3 / 12</div>
+  </div>
+
+  <!-- Slide 4 -->
+  <div class="slide" id="slide4">
+    <h2>Existing System vs. Our Gap Fill</h2>
+    <div class="content-split">
+      <div class="bullets">
+        <ul>
+          <li>We are <strong>NOT</strong> replacing the state DVDMS system.</li>
+          <li>We digitize the "first mile" (paper register) via AI OCR.</li>
+          <li>Accurate data flows to DVDMS faster, preventing stockouts.</li>
+        </ul>
+      </div>
+      <div class="visual">
+        <table class="css-table">
+          <tr><th>Feature</th><th>State DVDMS</th><th>AushadhiSetu</th></tr>
+          <tr><td>Level</td><td>State / District</td><td>Local PHC</td></tr>
+          <tr><td>Input</td><td>Manual Keyboard</td><td>AI Photo / Voice</td></tr>
+          <tr><td>Speed</td><td>Delayed (Days)</td><td>Real-Time</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="nav-footer">4 / 12</div>
+  </div>
+
+  <!-- Slide 5 -->
+  <div class="slide" id="slide5">
+    <h2>Solution Flow</h2>
+    <div class="content-split">
+      <div class="bullets">
+        <ul>
+          <li>Photo or Voice input captures register data effortlessly.</li>
+          <li>Gemini 2.5 AI accurately extracts data to strict JSON.</li>
+          <li>Local JS Forecast calculates risk and drafts MOIC Indent.</li>
+        </ul>
+      </div>
+      <div class="visual">
+        <div class="flowchart">
+          <div class="flow-box">📸 Paper Register / 🎤 Voice</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-box" style="background: #1565c0;">✨ Gemini 2.5 Flash AI</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-box">📊 Local JS Forecast</div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-box" style="background: var(--green);">✅ Human Approved Indent</div>
+        </div>
+      </div>
+    </div>
+    <div class="nav-footer">5 / 12</div>
+  </div>
+
+  <!-- Slide 6 -->
+  <div class="slide" id="slide6">
+    <h2>The AI Engine (Vision & Voice)</h2>
+    <div class="content-split">
+      <div class="bullets">
+        <ul>
+          <li>Gemini 2.5 Flash via AI Studio processes messy registers.</li>
+          <li>Outputs strict JSON schema with validation checksums.</li>
+          <li>Understands spoken Hindi for quick stock updates.</li>
+        </ul>
+      </div>
+      <div class="visual">
+        <div class="code-block">
+{
+  "drugCode": "DRG001",
+  "name": "Paracetamol 500mg",
+  "opening": 500,
+  "issued": 50,
+  "closing": 450,
+  "_checksum": true,
+  "confidence": {
+    "closing": 0.96
+  }
+}
+        </div>
+      </div>
+    </div>
+    <div class="nav-footer">6 / 12</div>
+  </div>
+
+  <!-- Slide 7 -->
+  <div class="slide" id="slide7">
+    <h2>Risk Board (Live Demo Proof)</h2>
+    <div class="content-split">
+      <div class="bullets">
+        <ul>
+          <li>Local JS forecasting dynamically categorizes 60 drugs.</li>
+          <li>Real-time alerts for stockouts and approaching expiry.</li>
+          <li><strong>Verified Demo State:</strong> 7 RED / 15 AMBER / 38 GREEN.</li>
+        </ul>
+      </div>
+      <div class="visual" style="width: 100%;">
+        <div class="risk-card risk-red">
+          <h4>🔴 Paracetamol 500mg</h4>
+          <p><strong>0 - 9 Days Left</strong> | Stockout Imminent</p>
+        </div>
+        <div class="risk-card risk-red">
+          <h4>🔴 Amoxicillin 250mg</h4>
+          <p><strong>1 - 12 Days Left</strong> | Critical Need</p>
+        </div>
+        <div class="risk-card risk-amber">
+          <h4>🟡 ORS Sachet</h4>
+          <p><strong>Overstock</strong> | Batch expires in 60 days</p>
+        </div>
+        <div class="risk-card risk-green">
+          <h4>🟢 Iron Folic Acid</h4>
+          <p><strong>Safe</strong> | > 30 Days Stock</p>
+        </div>
+      </div>
+    </div>
+    <div class="nav-footer">7 / 12</div>
+  </div>
+
+  <!-- Slide 8 -->
+  <div class="slide" id="slide8">
+    <h2>Data Architecture & Disclosures</h2>
+    <div class="content-split">
+      <div class="bullets">
+        <ul>
+          <li>100% Vercel free tier (Next.js PWA + API Routes).</li>
+          <li>Local <code>seed.json</code> prevents heavy DB costs.</li>
+          <li>Completely transparent AI assistance & guardrails.</li>
+        </ul>
+      </div>
+      <div class="visual">
+        <div class="disclosure-box">
+          🚨 <strong>Hackathon Architecture Disclosures</strong>
+          <ul>
+            <li><strong>Synthetic Data:</strong> Uses generated Demo Data.</li>
+            <li><strong>Local Compute:</strong> JS Forecast used (Not BQML).</li>
+            <li><strong>No State API:</strong> No live DVDMS integration.</li>
+            <li><strong>Ethics:</strong> Zero PII (Patient Info) processed.</li>
+            <li><strong>Safety:</strong> MOIC manual approval mandatory.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="nav-footer">8 / 12</div>
+  </div>
+
+  <!-- Slide 9 -->
+  <div class="slide" id="slide9">
+    <h2>Pilot, Scale, & Cost</h2>
+    <div class="content-split">
+      <div class="bullets">
+        <ul>
+          <li>Ready for an immediate 30-day pilot deployment.</li>
+          <li>Edge-compute architecture keeps infrastructure minimal.</li>
+          <li>Massive state savings by preventing emergency bulk purchases.</li>
+        </ul>
+      </div>
+      <div class="visual">
+        <div class="callout-box" style="text-align: center; font-size: 2.5rem; padding: 3rem; background: var(--deep-teal); color: white;">
+          Vercel Free Tier<br>
+          <span style="color: var(--amber); font-size: 4rem;">Rs. 0 / PHC</span>
+        </div>
+      </div>
+    </div>
+    <div class="nav-footer">9 / 12</div>
+  </div>
+
+  <!-- Slide 10 -->
+  <div class="slide" id="slide10">
+    <h2>Safeguards & Ethics</h2>
+    <div class="content-split">
+      <div class="bullets">
+        <ul>
+          <li><strong>Privacy First:</strong> We track drug volumes, never patient names.</li>
+          <li><strong>Human-in-the-Loop:</strong> AI only assists, never decides.</li>
+          <li><strong>Control:</strong> Auto-ordering is strictly hardcoded OFF.</li>
+        </ul>
+      </div>
+      <div class="visual">
+        <div class="callout-box" style="background: #e3f2fd; border-color: #1976d2;">
+          <h3 style="color: #1976d2; margin-bottom: 1rem;">Final Indent Approval</h3>
+          <div style="font-size: 1.5rem; font-weight: bold; display: flex; align-items: center; gap: 1rem;">
+            <input type="checkbox" checked disabled style="width: 30px; height: 30px;">
+            I (MOIC) approve this indent manually.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="nav-footer">10 / 12</div>
+  </div>
+
+  <!-- Slide 11 -->
+  <div class="slide" id="slide11">
+    <h2>Team, Stack & Open Source</h2>
+    <div class="content-split">
+      <div class="bullets">
+        <ul>
+          <li>Built with <strong>Next.js</strong>, <strong>Vercel</strong>, and <strong>Gemini 2.5 Flash</strong>.</li>
+          <li>Fully transparent and modifiable architecture.</li>
+          <li>Open-source license for community adoption.</li>
+        </ul>
+      </div>
+      <div class="visual">
+        <div class="callout-box" style="text-align: center;">
+          <h3>Source Code Available</h3>
+          <p style="font-family: monospace; font-size: 1.2rem; margin-top: 1rem;">
+            github.com/bc2ykys/aushadhisetu
+          </p>
+          <div style="margin-top: 1rem; font-size: 1rem; color: #666;">Licensed under Apache-2.0</div>
+        </div>
+      </div>
+    </div>
+    <div class="nav-footer">11 / 12</div>
+  </div>
+
+  <!-- Slide 12 -->
+  <div class="slide" id="slide12" style="justify-content: center; align-items: center; text-align: center;">
+    <h2>Try It Now</h2>
+    <p style="font-size: 1.5rem; margin-bottom: 2rem;">Scan to open the Vercel PWA Demo</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://aushadhisetu-blond.vercel.app/" alt="QR Code" class="qr-code" width="300" height="300">
+    <p style="font-size: 1.5rem; font-weight: 600; margin-top: 2rem; color: var(--deep-teal);">
+      https://aushadhisetu-blond.vercel.app/
+    </p>
+    <p style="font-size: 1.2rem; color: #666; margin-top: 3rem;">Thank you, Google Cloud & Hack2Skill!</p>
+    <div class="nav-footer">12 / 12</div>
+  </div>
+
+</div>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  
+  function showSlide(index) {
+    slides.forEach(s => s.classList.remove('active'));
+    if(index >= slides.length) currentSlide = slides.length - 1;
+    if(index < 0) currentSlide = 0;
+    slides[currentSlide].classList.add('active');
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ') {
+      currentSlide++;
+      showSlide(currentSlide);
+    } else if (e.key === 'ArrowLeft') {
+      currentSlide--;
+      showSlide(currentSlide);
+    }
+  });
+
+  document.getElementById('presentation').addEventListener('click', (e) => {
+    // Left half screen = previous, Right half = next
+    if (e.clientX > window.innerWidth / 2) {
+      currentSlide++;
+    } else {
+      currentSlide--;
+    }
+    showSlide(currentSlide);
+  });
+</script>
+</body>
+</html>
