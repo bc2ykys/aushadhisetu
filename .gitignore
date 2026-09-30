@@ -1,0 +1,9 @@
+# AushadhiSetu - protect secrets + heavy build output
+.env
+.env.local
+node_modules/
+.next/
+out/
+vercel/
+*.log
+.DS_Store

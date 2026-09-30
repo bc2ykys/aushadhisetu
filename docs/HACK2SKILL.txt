@@ -1,0 +1,16 @@
+AushadhiSetu: Last-Mile PHC Stock Guardian
+
+Problem: Rural Primary Health Centers (PHCs) manage essential drug inventories using cumbersome paper registers. This creates severe data entry lags for state DVDMS portals. A 2022 CAG audit revealed 27% of Rajasthan PHCs had critically low stock of essential medicines. Pharmacists guess restock indents, leading to widespread stockouts.
+
+Users: Designed specifically for PHC Pharmacists (data capture) and the Medical Officer In-Charge (MOIC indent approver).
+
+Solution & AI: AushadhiSetu digitizes the paper register in seconds. Using a Next.js PWA, the pharmacist snaps a photo. Google's Gemini 2.5 Flash (via AI Studio REST) extracts the tabular data into structured JSON, guarded by local checksum validation. For quick corrections, pharmacists use a Hindi voice-to-text module. 
+
+Instead of heavy cloud ML, we implemented a lightweight, edge-ready JavaScript time-series forecasting module that calculates a 14-day moving average. It flags drugs as RED (<=14 days stock), AMBER, or GREEN, and auto-generates a data-driven indent. A strict "human-in-the-loop" constraint ensures the MOIC must manually approve the indent—no auto-ordering allowed. 
+
+Tech & Data: Built entirely on Vercel's free tier (Next.js App Router, API Routes). We bypassed complex databases, utilizing local `seed.json` populated exclusively with synthetic demo data to strictly ensure zero PII handling. 
+
+Impact: By eliminating manual ledger math and proactively predicting stockouts, we save pharmacists hours daily while preventing emergency local drug purchases. Ready for a 30-day pilot.
+
+Demo: https://aushadhisetu.vercel.app
+Repo: https://github.com/placeholder/aushadhisetu

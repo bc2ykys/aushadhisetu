@@ -1,0 +1,61 @@
+drug_code,name_en,name_hi,unit,category,max_month_norm
+DRG001,Paracetamol 500mg,पैरासिटामोल 500mg,Tablet,Analgesic,15000
+DRG002,ORS Sachet,ओआरएस सैशे,Sachet,Fluid Replenishment,8000
+DRG003,Iron Folic Acid,आयरन फोलिक एसिड,Tablet,Supplement,12000
+DRG004,Amoxicillin 250mg,एमोक्सिसिलिन 250mg,Capsule,Antibiotic,5000
+DRG005,Cetirizine 10mg,सिट्रीजीन 10mg,Tablet,Antihistamine,3000
+DRG006,Albendazole 400mg,एल्बेंडाजोल 400mg,Tablet,Anthelmintic,2000
+DRG007,Omeprazole 20mg,ओमेप्राजोल 20mg,Capsule,Antacid,4000
+DRG008,Metformin 500mg,मेटफॉर्मिन 500mg,Tablet,Anti-diabetic,6000
+DRG009,Amlodipine 5mg,एम्लोडिपिन 5mg,Tablet,Anti-hypertensive,4500
+DRG010,Vitamin B Complex,विटामिन बी कॉम्प्लेक्स,Tablet,Supplement,10000
+DRG011,Ibuprofen 400mg,इबुप्रोफेन 400mg,Tablet,Analgesic,8000
+DRG012,Diclofenac 50mg,डाइक्लोफेनाक 50mg,Tablet,Analgesic,5000
+DRG013,Aspirin 75mg,एस्पिरिन 75mg,Tablet,Antiplatelet,4000
+DRG014,Ciprofloxacin 500mg,सिप्रोफ्लोक्सासिन 500mg,Tablet,Antibiotic,3000
+DRG015,Metronidazole 400mg,मेट्रोनिडाजोल 400mg,Tablet,Antibiotic,4000
+DRG016,Azithromycin 500mg,एजिथ्रोमाइसिन 500mg,Tablet,Antibiotic,2000
+DRG017,Cotrimoxazole,कोट्रीमोक्साजोल,Tablet,Antibiotic,3000
+DRG018,Doxycycline 100mg,डॉक्सीसाइक्लिन 100mg,Capsule,Antibiotic,2500
+DRG019,Norfloxacin 400mg,नॉरफ्लोक्सासिन 400mg,Tablet,Antibiotic,2000
+DRG020,Cefixime 200mg,सेफिक्सीम 200mg,Tablet,Antibiotic,2000
+DRG021,Glimepiride 1mg,ग्लिमेपिराइड 1mg,Tablet,Anti-diabetic,3000
+DRG022,Glibenclamide 5mg,ग्लिबेंक्लामाइड 5mg,Tablet,Anti-diabetic,2500
+DRG023,Atenolol 50mg,एटेनोलोल 50mg,Tablet,Anti-hypertensive,4000
+DRG024,Enalapril 5mg,एनालाप्रिल 5mg,Tablet,Anti-hypertensive,3000
+DRG025,Losartan 50mg,लोसार्टन 50mg,Tablet,Anti-hypertensive,3500
+DRG026,Nifedipine 10mg,निफेडिपिन 10mg,Tablet,Anti-hypertensive,2000
+DRG027,Calcium Carbonate 500mg,कैल्शियम कार्बोनेट 500mg,Tablet,Supplement,8000
+DRG028,Vitamin C 500mg,विटामिन सी 500mg,Tablet,Supplement,6000
+DRG029,Vitamin D3 60000IU,विटामिन डी3 60000IU,Sachet,Supplement,1000
+DRG030,Zinc 20mg,जिंक 20mg,Tablet,Supplement,5000
+DRG031,Ranitidine 150mg,रेनिटिडिन 150mg,Tablet,Antacid,4000
+DRG032,Pantoprazole 40mg,पेंटोप्राजोल 40mg,Tablet,Antacid,3500
+DRG033,Domperidone 10mg,डॉम्पेरिडोन 10mg,Tablet,Antiemetic,3000
+DRG034,Ondansetron 4mg,ओन्डानसेट्रॉन 4mg,Tablet,Antiemetic,1500
+DRG035,Chlorpheniramine 4mg,क्लोरफेनिरामाइन 4mg,Tablet,Antihistamine,3000
+DRG036,Chloroquine 250mg,क्लोरोक्वीन 250mg,Tablet,Anti-malarial,1500
+DRG037,Artesunate 50mg,आर्टीसुनेट 50mg,Tablet,Anti-malarial,1000
+DRG038,Isoniazid 300mg,आइसोनियाज़िड 300mg,Tablet,Anti-TB,2000
+DRG039,Rifampicin 450mg,रिफैम्पिसिन 450mg,Capsule,Anti-TB,1500
+DRG040,Ethambutol 800mg,इथैम्ब्यूटोल 800mg,Tablet,Anti-TB,1500
+DRG041,Pyrazinamide 500mg,पायराजिनामाइड 500mg,Tablet,Anti-TB,1500
+DRG042,Salbutamol Inhaler,सालब्यूटामोल इनहेलर,Inhaler,Respiratory,500
+DRG043,Theophylline 100mg,थियोफिलीन 100mg,Tablet,Respiratory,2000
+DRG044,Betamethasone Cream,बीटामेथासोन क्रीम,Tube,Dermatology,800
+DRG045,Clotrimazole Cream,क्लोट्रिमाजोल क्रीम,Tube,Dermatology,800
+DRG046,Permethrin Lotion,पर्मेथ्रिन लोशन,Bottle,Dermatology,500
+DRG047,Ciprofloxacin Eye Drops,सिप्रोफ्लोक्सासिन आई ड्रॉप्स,Bottle,Ophthalmology,600
+DRG048,Gentamicin Eye Drops,जेंटामाइसिन आई ड्रॉप्स,Bottle,Ophthalmology,500
+DRG049,Oxytocin Injection,ऑक्सीटोसिन इंजेक्शन,Ampoule,Gynecology,300
+DRG050,Misoprostol 200mcg,मिसोप्रोस्टोल 200mcg,Tablet,Gynecology,500
+DRG051,Prednisolone 5mg,प्रेडनिसोलोन 5mg,Tablet,Steroid,2000
+DRG052,Dexamethasone 0.5mg,डेक्सामेथासोन 0.5mg,Tablet,Steroid,1500
+DRG053,Phenytoin 100mg,फेनीटोइन 100mg,Tablet,Anti-epileptic,2000
+DRG054,Carbamazepine 200mg,कार्बामाज़ेपिन 200mg,Tablet,Anti-epileptic,1500
+DRG055,Furosemide 40mg,फ्यूरोसेमाइड 40mg,Tablet,Diuretic,3000
+DRG056,Hydrochlorothiazide 25mg,हाइड्रोक्लोरोथायज़ाइड 25mg,Tablet,Diuretic,2500
+DRG057,Povidone Iodine Solution,पोविडोन आयोडीन,Bottle,Antiseptic,600
+DRG058,Normal Saline 500ml,नॉर्मल सैलाइन 500ml,Bottle,IV Fluid,300
+DRG059,Atropine Injection,एट्रोपिन इंजेक्शन,Ampoule,Emergency,200
+DRG060,Adrenaline Injection,एड्रेनालिन इंजेक्शन,Ampoule,Emergency,200
